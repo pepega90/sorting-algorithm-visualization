@@ -1,8 +1,8 @@
 #include "raylib.h"
-#include<iostream>
-#include<string>
-#include<stdlib.h>
-#include<vector>
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+#include <vector>
 
 #define WIDTH 900
 #define HEIGHT 400
@@ -10,19 +10,19 @@
 using namespace std;
 
 // global variabel countdown untuk swap
-int countdown{ 3 };
+int countdown{3};
 float run{};
-float lastUpdate{ 0.03 };
+float lastUpdate{0.03};
 
-void draw(int* arr, int n, int widthVerticalBar, Color* arr_clr, Color* clr);
+void draw(int *arr, int n, int widthVerticalBar, Color *arr_clr, Color *clr);
 
-void bubbleSort(int* arr, int& sizeArr, int& widthVerticalBar, Color* arr_clr, Color* clr);
+void bubbleSort(int *arr, int &sizeArr, int &widthVerticalBar, Color *arr_clr, Color *clr);
 
-void insertionSort(int* arr, int& sizeArr, int& widthVerticalBar, Color* arr_clr, Color* clr, int& x);
+void insertionSort(int *arr, int &sizeArr, int &widthVerticalBar, Color *arr_clr, Color *clr, int &x);
 
-void selectionSort(int* arr, int& sizeArr, int& widthVerticalBar, Color* arr_clr, Color* clr, int& t);
+void selectionSort(int *arr, int &sizeArr, int &widthVerticalBar, Color *arr_clr, Color *clr, int &t);
 
-void merge(int* arr, int s, int e)
+void merge(int *arr, int s, int e)
 {
     int i = s;
     int mid = (s + e) / 2;
@@ -62,9 +62,10 @@ void merge(int* arr, int s, int e)
     return;
 }
 
-void mergeSort(int* arr, int s, int e)
+void mergeSort(int *arr, int s, int e)
 {
-    if (s >= e) return;
+    if (s >= e)
+        return;
 
     int mid = (s + e) / 2;
 
@@ -73,19 +74,18 @@ void mergeSort(int* arr, int s, int e)
     return merge(arr, s, e);
 }
 
-
 int main()
 {
     InitWindow(WIDTH, HEIGHT, "Sorting visualization");
     SetTargetFPS(60);
 
-    int sizeArr{ 40 };
-    int widthVerticalBar{ WIDTH / sizeArr };
+    int sizeArr{40};
+    int widthVerticalBar{WIDTH / sizeArr};
     // cout << widthVerticalBar << endl;
     int arr[sizeArr];
     Color arr_clr[sizeArr];
-    Color clr[] = { YELLOW, DARKGREEN, DARKBLUE };
-    string sortList[] = { "Bubble Sort", "Insertion Sort", "Selection Sort" };
+    Color clr[] = {YELLOW, DARKGREEN, DARKBLUE};
+    string sortList[] = {"Bubble Sort", "Insertion Sort", "Selection Sort"};
     int sizeSort = sizeof(sortList) / sizeof(string);
     int select{};
 
@@ -94,7 +94,6 @@ int main()
     int x = 1;
     // track current element di selection sort
     int t = 0;
-
 
     bool sort{};
     bool done{};
@@ -105,7 +104,7 @@ int main()
         arr[i] = GetRandomValue(50, 200);
     }
     // inisialisasi array color saat pertama kali
-    for (int i = 0;i < sizeArr; i++)
+    for (int i = 0; i < sizeArr; i++)
     {
         arr_clr[i] = clr[0];
     }
@@ -136,9 +135,12 @@ int main()
 
         if (!sort)
         {
-            if (IsKeyPressed(KEY_ONE)) select = 1;
-            else if (IsKeyPressed(KEY_TWO)) select = 2;
-            else if (IsKeyPressed(KEY_THREE)) select = 3;
+            if (IsKeyPressed(KEY_ONE))
+                select = 1;
+            else if (IsKeyPressed(KEY_TWO))
+                select = 2;
+            else if (IsKeyPressed(KEY_THREE))
+                select = 3;
         }
 
         if (sort)
@@ -167,8 +169,6 @@ int main()
                 else if (select == 3)
                     selectionSort(arr, sizeArr, widthVerticalBar, arr_clr, clr, t);
             }
-
-
         }
 
         if (countdown == -1)
@@ -187,7 +187,6 @@ int main()
         //         runDone = 0.0;
         //     }
         // }
-
 
         // if (countdown < 0)
         // {
@@ -211,7 +210,6 @@ int main()
                 DrawText(sortList[2].c_str(), 120 + 2 * 250, 20, 20, ORANGE);
                 break;
             }
-
         }
 
         EndDrawing();
@@ -222,7 +220,7 @@ int main()
     return 0;
 }
 
-void draw(int* arr, int n, int widthVerticalBar, Color* arr_clr, Color* clr)
+void draw(int *arr, int n, int widthVerticalBar, Color *arr_clr, Color *clr)
 {
     for (int i = 0; i < n; i++)
     {
@@ -232,7 +230,7 @@ void draw(int* arr, int n, int widthVerticalBar, Color* arr_clr, Color* clr)
     }
 }
 
-void bubbleSort(int* arr, int& sizeArr, int& widthVerticalBar, Color* arr_clr, Color* clr)
+void bubbleSort(int *arr, int &sizeArr, int &widthVerticalBar, Color *arr_clr, Color *clr)
 {
     for (int i = 1; i <= sizeArr - 1; i++)
     {
@@ -258,13 +256,11 @@ void bubbleSort(int* arr, int& sizeArr, int& widthVerticalBar, Color* arr_clr, C
                 swap(arr[j], arr[j + 1]);
                 countdown = 3;
             }
-
         }
     }
-
 }
 
-void insertionSort(int* arr, int& sizeArr, int& widthVerticalBar, Color* arr_clr, Color* clr, int& x)
+void insertionSort(int *arr, int &sizeArr, int &widthVerticalBar, Color *arr_clr, Color *clr, int &x)
 {
     for (int i = 1; i <= sizeArr - 1; i++)
     {
@@ -308,7 +304,7 @@ void insertionSort(int* arr, int& sizeArr, int& widthVerticalBar, Color* arr_clr
     }
 }
 
-void selectionSort(int* arr, int& sizeArr, int& widthVerticalBar, Color* arr_clr, Color* clr, int& t)
+void selectionSort(int *arr, int &sizeArr, int &widthVerticalBar, Color *arr_clr, Color *clr, int &t)
 {
     for (int i = 0; i <= sizeArr - 2; i++)
     {
@@ -339,12 +335,3 @@ void selectionSort(int* arr, int& sizeArr, int& widthVerticalBar, Color* arr_clr
         swap(arr[min], arr[i]);
     }
 }
-
-
-
-
-
-
-
-
-

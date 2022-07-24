@@ -1,3 +1,4 @@
+Makefile linguist-detectable=false
 *.exe
 *.dsym
 main

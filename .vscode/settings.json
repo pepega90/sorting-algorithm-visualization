@@ -1,33 +1,8 @@
 {
-	"files.exclude": {
-		"**/.git": true,
-		"**/.svn": true,
-		"**/.hg": true,
-		"**/CVS": true,
-		"**/.DS_Store": true,
-		"**/*.o": true,
-		"**/*.exe": true,
-	},
-	"files.associations": {
-		"array": "cpp",
-		"string": "cpp",
-		"string_view": "cpp",
-		"*.m": "cpp",
-		"ostream": "cpp",
-		"*.tcc": "cpp",
-		"unordered_map": "cpp",
-		"memory": "cpp",
-		"optional": "cpp",
-		"fstream": "cpp",
-		"istream": "cpp",
-		"vector": "cpp",
-		"sstream": "cpp",
-		"streambuf": "cpp",
-		"tuple": "cpp",
-		"iostream": "cpp",
-		"thread": "cpp",
-		"chrono": "cpp",
-		"algorithm": "cpp"
-	},
-	"C_Cpp.errorSquiggles": "Disabled"
+    "files.associations": {
+        "iostream": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "chrono": "cpp"
+    }
 }
